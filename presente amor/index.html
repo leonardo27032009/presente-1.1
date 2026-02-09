@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversário Meu Bem ❤️</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #ffe4ec, #ffc1d6);
+      color: #5a1a2c;
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .btn-surpresa {
+      margin-top: 35px;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn-surpresa:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #ad1457;
+      margin-bottom: 30px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .galeria img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    .carta {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.85);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .frase {
+      margin-top: 25px;
+      font-size: 1.5rem;
+      color: #d81b60;
+      font-weight: bold;
+    }
+
+    .contador {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #880e4f;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: subir 6s linear infinite;
+      color: rgba(233,30,99,0.8);
+      z-index: 999;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+    #senha-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffe4ec, #ffc1d6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.senha-box {
+  background: white;
+  padding: 40px 45px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  max-width: 320px;
+  width: 90%;
+}
+
+.senha-box h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #c2185b;
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.senha-box p {
+  color: #880e4f;
+  margin-bottom: 15px;
+}
+
+.senha-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+}
+
+.senha-box button {
+  margin-top: 15px;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 30px;
+  background: #e91e63;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#erro {
+  display: none;
+  margin-top: 12px;
+  color: red;
+}
+
+  </style>
+</head>
+<body>
+    <!-- TELA DE SENHA -->
+<div id="senha-container">
+  <div class="senha-box">
+    <h2>💖 Área Secreta 💖</h2>
+    <p>O dia que tudo mudou❤️</p>
+    <input type="password" id="senha" placeholder="Digite a senha">
+    <button onclick="verificarSenha()">Entrar</button>
+    <p id="erro">Senha incorreta 😢</p>
+  </div>
+</div>
+
+  <!-- TELA INICIAL -->
+  <header>
+    <h1>Feliz Aniversário, MOMO ❤️</h1>
+    <p>
+      Fiz isso com todo o meu carinho, só pra você meu bem.<br>
+      Clica no botão✨
+    </p>
+    <button class="btn-surpresa" onclick="mostrarSurpresa()">Abrir surpresa 🎁</button>
+  </header>
+
+  <!-- GALERIA -->
+  <section id="galeria" style="display: none;">
+    <h2>Nossos Momentos ✨</h2>
+    <div class="galeria">
+      <img src="fotos/foto1.jpeg">
+      <img src="fotos/foto2.jpeg">
+      <img src="fotos/foto3.jpeg">
+      <img src="fotos/foto4.jpeg">
+      <img src="fotos/foto5.jpeg">
+      <img src="fotos/foto6.jpeg">
+      <img src="fotos/foto7.jpeg">
+      <img src="fotos/foto8.jpeg">
+      <img src="fotos/foto9.jpeg">
+      <img src="fotos/foto11.jpeg">
+      <img src="fotos/foto12.jpeg">
+      <img src="fotos/foto13.jpeg">
+    
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section id="carta" style="display: none;">
+    <h2>Pra você, Minha Vida 💌</h2>
+    <div class="carta">
+      <p>
+        Desde o dia <strong>28 de junho de 2025</strong>, tudo ganhou mais cor,
+        mais sentido e mais felicidade.<br><br>
+        Obrigado por cada sorriso, cada momento e por ser exatamente quem você é.
+        A cada dia que se passa eu tenho certeza que você é a pessoa que eu pedi para Deus.
+        Você, me atura, me aguenta, é linda, é inteligente, é carinhosa, e é perfeita.
+        Você é o amor da minha vida, nem em outra vida eu ia querer escolher outra pessoa.
+        Você é meu tudo, que esse seja seu primeiro Aniversário de muitos ao meu lado, aproveita seu dia minha princesa.
+        <strong>EUTEAMO MIL MILHÕESSSS ❤️</strong><br><br>
+
+Eu te amo (Português), I love you (Inglês), Te amo (Espanhol),<br>
+Je t’aime (Francês), Ti amo (Italiano), Ich liebe dich (Alemão),<br>
+Ik hou van jou (Holandês), Jag älskar dig (Sueco), Jeg elsker deg (Norueguês),<br>
+Jeg elsker dig (Dinamarquês), Minä rakastan sinua (Finlandês), Я тебя люблю (Russo),<br>
+Kocham cię (Polonês), Miluji tě (Tcheco), Ľúbim ťa (Eslovaco),<br>
+Szeretlek (Húngaro), Te iubesc (Romeno), Σ’αγαπώ (Grego),<br>
+Seni seviyorum (Turco), Обичам те (Búlgaro), Я тебе кохаю (Ucraniano),<br>
+אני אוהב אותך (Hebraico), أحبك (Árabe), دوستت دارم (Persa),<br>
+मैं तुमसे प्यार करता हूँ (Hindi), আমি তোমায় ভালোবাসি (Bengali), میں تم سے محبت کرتا ہوں (Urdu),<br>
+நான் உன்னை காதலிக்கிறேன் (Tâmil), నేను నిన్ను ప్రేమిస్తున్నాను (Telugu), मी तुझ्यावर प्रेम करतो (Marathi),<br>
+我爱你 (Chinês), 愛してる (Japonês), 사랑해 (Coreano),<br>
+Anh yêu em (Vietnamita), ฉันรักคุณ (Tailandês), Aku cinta kamu (Indonésio),<br>
+Saya cinta padamu (Malaio), Mahal kita (Filipino), Nakupenda (Suaíli),<br>
+Ngiyakuthanda (Zulu), Ek het jou lief (Africâner), Ég elska þig (Islandês),<br>
+Tá grá agam duit (Irlandês), Rwy’n dy garu di (Galês), Amo te (Latim),<br>
+Mi amas vin (Esperanto), T’estimo (Catalão), Maite zaitut (Basco),<br>
+Volim te (Croata), Волим те (Sérvio).<br><br>
+
+Eu te amo em muitas línguas…<br>
+mas nenhuma delas é suficiente pra explicar o que eu sinto por você, amor. ❤️
+      </p>
+
+      <div class="frase">
+        EUTEAMO MUITÃOOOOOOOOOOOOOOOOOOOOOOOOOO ❤️
+      </div>
+
+      <div class="contador" id="contador"></div>
+    </div>
+  </section>
+
+  <script>
+    function mostrarSurpresa() {
+      document.getElementById('galeria').style.display = 'block';
+      document.getElementById('carta').style.display = 'block';
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    }
+
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('heart');
+      coracao.innerText = '❤️';
+      coracao.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+
+    const inicio = new Date('2025-06-28');
+
+    function atualizarContador() {
+      const agora = new Date();
+      const dias = Math.floor((agora - inicio) / (1000 * 60 * 60 * 24));
+      document.getElementById('contador').innerText =
+        `Já são ${dias} dias ao seu lado 💖`;
+    }
+
+    atualizarContador();
+    function verificarSenha() {
+  const senhaCorreta = "28062025"; // 🔑 MUDE AQUI SE QUISER
+  const senhaDigitada = document.getElementById("senha").value;
+
+  if (senhaDigitada === senhaCorreta) {
+    document.getElementById("senha-container").style.display = "none";
+  } else {
+    document.getElementById("erro").style.display = "block";
+  }
+}
+
+  </script>
+
+</body>
+
+
+</html>
